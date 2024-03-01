@@ -8,8 +8,8 @@ export BEAM_ENERGY=10.6
 export TARGET_TYPE="proton"
 export NEVENTS=100 #NOTE: NEED TO CHANGE FROM SETUP.SH? -> Definitely increase for actual jobs but keep this for testing...
 export EVPFILE=$NEVENTS
-export GCARD="$BASEDIR/rgh_new.gcard"
-export YAML="$BASEDIR/rgh_new.yaml"
+export GCARD="$BASEDIR/rgh_physics.gcard"
+export YAML="$BASEDIR/rgh_physics.yaml"
 export OUTDIR="/volatile/clas12/users/$USER/rgh_simulation"
 mkdir -p $OUTDIR
 
