@@ -2,8 +2,8 @@
 cd /work/clas12/users/$USER/rgh_simulation
 i=1
 
-export NITERATIONS=10
-export NEVENTS=100
+export NITERATIONS=1000
+export NEVENTS=10000
 
 while [ $i -le $NITERATIONS ]
 do
