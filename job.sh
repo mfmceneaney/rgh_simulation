@@ -1,4 +1,8 @@
-#!/bin/bash                                                  
+#!/bin/bash
+
+# IMPORTANT! Load local CCDB copy
+module load sqlite/dev
+module load xrootd
 
 # Set job info
 export MCINDEX=0 #NOTE: NEED TO CHANGE FROM SETUP.SH
