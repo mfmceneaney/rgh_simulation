@@ -171,8 +171,8 @@ void PlotRGH_pim() {
     std::vector<std::vector<double>> binlims;
     std::vector<std::string> labels;
 
-    names.push_back("Q2"); nbins.push_back(100); binlims.push_back({1.0,4.0}); labels.push_back("Q^{2} (GeV^{2})");
-    names.push_back("W"); nbins.push_back(100); binlims.push_back({2.0,10.0}); labels.push_back("W (GeV)");
+    names.push_back("Q2"); nbins.push_back(100); binlims.push_back({1.0,10.0}); labels.push_back("Q^{2} (GeV^{2})");
+    names.push_back("W"); nbins.push_back(100); binlims.push_back({2.0,4.0}); labels.push_back("W (GeV)");
     names.push_back("y"); nbins.push_back(100); binlims.push_back({0.0,1.0}); labels.push_back("y");
     names.push_back("x"); nbins.push_back(100); binlims.push_back({0.0,1.0}); labels.push_back("x");
 
