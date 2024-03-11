@@ -203,20 +203,20 @@ void PlotRGH_pi() {
     names.push_back("chi2pid_e"); nbins.push_back(100); binlims.push_back({-10.0,10.0}); labels.push_back("#chi^{2}_{PID e^{-}}");
     names.push_back(Form("chi2pid%s",particle_suffix.c_str())); nbins.push_back(100); binlims.push_back({-10.0,10.0}); labels.push_back(Form("#chi^{2}_{PID}%s",particle_title_suffix.c_str()));
 
-    names.push_back("vT_e"); nbins.push_back(100); binlims.push_back({0.0,50.0}); labels.push_back("v_{T e^{-}} (cm)");
-    names.push_back(Form("vT%s",particle_suffix.c_str())); nbins.push_back(100); binlims.push_back({0.0,50.0}); labels.push_back(Form("v_{T}%s (cm)",particle_title_suffix.c_str()));
+    names.push_back("vT_e"); nbins.push_back(100); binlims.push_back({0.0,5.0}); labels.push_back("v_{T e^{-}} (cm)");
+    names.push_back(Form("vT%s",particle_suffix.c_str())); nbins.push_back(100); binlims.push_back({0.0,5.0}); labels.push_back(Form("v_{T}%s (cm)",particle_title_suffix.c_str()));
 
-    names.push_back("v_e"); nbins.push_back(100); binlims.push_back({0.0,50.0}); labels.push_back("v_{e^{-}} (cm)");
-    names.push_back(Form("v%s",particle_suffix.c_str())); nbins.push_back(100); binlims.push_back({0.0,50.0}); labels.push_back(Form("v%s (cm)",particle_title_suffix.c_str()));
+    names.push_back("v_e"); nbins.push_back(100); binlims.push_back({0.0,5.0}); labels.push_back("v_{e^{-}} (cm)");
+    names.push_back(Form("v%s",particle_suffix.c_str())); nbins.push_back(100); binlims.push_back({0.0,5.0}); labels.push_back(Form("v%s (cm)",particle_title_suffix.c_str()));
 
     names.push_back("vz_e"); nbins.push_back(100); binlims.push_back({-5.0,5.0}); labels.push_back("v_{z e^{-}} (cm)");
     names.push_back(Form("vz%s",particle_suffix.c_str())); nbins.push_back(100); binlims.push_back({-5.0,5.0}); labels.push_back(Form("v_{z}%s (cm)",particle_title_suffix.c_str()));
 
-    names.push_back("vx_e"); nbins.push_back(100); binlims.push_back({-5.0,5.0}); labels.push_back("v_{x e^{-}} (cm)");
-    names.push_back(Form("vx%s",particle_suffix.c_str())); nbins.push_back(100); binlims.push_back({-5.0,5.0}); labels.push_back(Form("v_{x}%s (cm)",particle_title_suffix.c_str()));
+    names.push_back("vx_e"); nbins.push_back(100); binlims.push_back({-2.0,2.0}); labels.push_back("v_{x e^{-}} (cm)");
+    names.push_back(Form("vx%s",particle_suffix.c_str())); nbins.push_back(100); binlims.push_back({-2.0,2.0}); labels.push_back(Form("v_{x}%s (cm)",particle_title_suffix.c_str()));
 
-    names.push_back("vy_e"); nbins.push_back(100); binlims.push_back({-5.0,5.0}); labels.push_back("v_{y e^{-}} (cm)");
-    names.push_back(Form("vy%s",particle_suffix.c_str())); nbins.push_back(100); binlims.push_back({-5.0,5.0}); labels.push_back(Form("v_{y}%s (cm)",particle_title_suffix.c_str()));
+    names.push_back("vy_e"); nbins.push_back(100); binlims.push_back({-2.0,2.0}); labels.push_back("v_{y e^{-}} (cm)");
+    names.push_back(Form("vy%s",particle_suffix.c_str())); nbins.push_back(100); binlims.push_back({-2.0,2.0}); labels.push_back(Form("v_{y}%s (cm)",particle_title_suffix.c_str()));
 
     // Plot correlations data
     int max_kinematics_idx = 3;
