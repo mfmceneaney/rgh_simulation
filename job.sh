@@ -35,3 +35,10 @@ export OUTDIR_REC="${OUTDIR}/cooked"
 mkdir -p $OUTDIR_REC
 export RECFILE=$OUTDIR_REC/$BASENAME.hipo
 recon-util -i $GEMCFILE -o $RECFILE -n $NEVENTS -y $YAML
+
+# Create DST
+export OUTDIR_DST="${OUTDIR}/dst"
+mkdir -p $OUTDIR_DST
+export DSTFILE=$OUTDIR_DST/$BASENAME.hipo
+export FILTER_BANKS='RUN::*,RAW::epics,RAW::scaler,HEL::flip,HEL::online,REC::*,RECFT::*,MC::RecMatch,MC::GenMatch,MC::Particle,MC::User,MC::Header,MC::Lund,MC::Event'
+hipo-utils -filter -b $FILTER_BANKS -merge -o $DSTFILE $RECFILE
