@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# IMPORTANT! Load local CCDB copy
-module load sqlite/dev
-module load xrootd
+## IMPORTANT! Load local CCDB copy.  Make sure these are in your startup script.
+# module load sqlite/dev
+# module load xrootd
 
 # Set job info
 export MCINDEX=0 #NOTE: NEED TO CHANGE FROM SETUP.SH
@@ -31,20 +31,20 @@ function check_task_status() {
     echo "Task status: $TASK_STATUS"
 
     # Exit if status is nonzero
-    if ($TASK_STATUS !=0)
+    if [ $TASK_STATUS -ne 0 ]; then
         echo "Task failed. Exit code $TASK_EXIT_CODE."
         exit $TASK_EXIT_CODE
-    endif
+    fi
     
 }
 
 # Run MC event Simulations (nh3 target 10.6 GeV)
 export OUTDIR_LUND="${OUTDIR}/lund"
 mkdir -p $OUTDIR_LUND
-export LUNDFILE=$OUTDIR_LUND/$BASENAME
+export LUNDFILE=$OUTDIR_LUND/$BASENAME #NOTE: This cannot be too long, otherwise clasdis will truncate it.
 clasdis --beam $BEAM_ENERGY --targ $TARGET_TYPE --trig $NEVENTS --nmax $EVPFILE --path $LUNDFILE
 export LUND_TASK_STATUS=$?
-export LUNDFILE=$OUTDIR_LUND/${BASENAME}clasdis*.dat
+export LUNDFILE=`ls $OUTDIR_LUND/${BASENAME}clasdis*.dat`
 check_task_status "clasdis" $LUNDFILE $LUND_TASK_STATUS 1
 
 # Run GEMC detector simulation
