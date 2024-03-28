@@ -8,7 +8,6 @@ module load xrootd
 export MCINDEX=0 #NOTE: NEED TO CHANGE FROM SETUP.SH
 export BASENAME="out_rgh_NH3_${MCINDEX}"
 export BASEDIR="/work/clas12/users/$USER/rgh_simulation"
-export SEED=$MCINDEX #NOTE: Just use the file index number as the seed for now.
 export BEAM_ENERGY=10.6
 export TARGET_TYPE="proton"
 export NEVENTS=100 #NOTE: NEED TO CHANGE FROM SETUP.SH? -> Definitely increase for actual jobs but keep this for testing...
@@ -43,7 +42,7 @@ function check_task_status() {
 export OUTDIR_LUND="${OUTDIR}/lund"
 mkdir -p $OUTDIR_LUND
 export LUNDFILE=$OUTDIR_LUND/$BASENAME
-clasdis --seed $SEED --beam $BEAM_ENERGY --targ $TARGET_TYPE --trig $NEVENTS --nmax $EVPFILE --path $LUNDFILE
+clasdis --beam $BEAM_ENERGY --targ $TARGET_TYPE --trig $NEVENTS --nmax $EVPFILE --path $LUNDFILE
 export LUND_TASK_STATUS=$?
 export LUNDFILE=$OUTDIR_LUND/${BASENAME}clasdis*.dat
 check_task_status "clasdis" $LUNDFILE $LUND_TASK_STATUS 1
