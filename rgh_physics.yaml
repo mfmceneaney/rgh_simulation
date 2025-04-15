@@ -57,6 +57,9 @@ services:
     name: RICH
   - class: org.jlab.service.rtpc.RTPCEngine
     name: RTPC
+# MC truth matching
+  - class: org.jlab.service.mc.TruthMatch
+    name: MCTRUTHMATCH
 configuration:
   global:
     variation: rga_fall2018_bg

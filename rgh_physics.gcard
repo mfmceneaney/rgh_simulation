@@ -1,21 +1,23 @@
 <gcard>
 
-        <!-- target -->
-	<detector name="experiments/clas12/targets/target" factory="TEXT" variation="transverse"/>
-	<detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/transverseTargetMagnets/targetWindows/" factory="CAD"/>
-	<detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/transverseTargetMagnets/targetWindows/cryocan" factory="TEXT" variation="ExitWindow"/>
+        <!-- target moved inside a cryostat can -->
+	<detector name="/work/clas12/mcontalb/GEMC/GCARD/targets/target" factory="TEXT" variation="transverse_marco"/>  <!-- move elements inside cryostat can-->
+        <detector name="/work/clas12/mcontalb/GEMC/GCARD//beamline/transverseTargetMagnets/targetWindows_cryocan/" factory="CAD"/>
+        <detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/transverseTargetMagnets/targetWindows_cryocan/cryocan" factory="TEXT" variation="marco"/>
 
         <!-- target magnet option -->
 	<!--detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/transverseTargetMagnets/noWedges/" factory="CAD"/-->
 	<!--detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/transverseTargetMagnets/forwardWedges/" factory="CAD"/-->
-	<detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/transverseTargetMagnets/midpointWedges/" factory="CAD"/>
+	<!--detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/transverseTargetMagnets/midpointWedges/" factory="CAD"/-->
+	<detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/transverseTargetMagnets/midpointWedges_ST/" factory="CAD"/>
 
-        <!-- beam line -->
-        <detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/beamline"    factory="TEXT" variation="downstreamCone"/>
+        <!-- downstream beam line with consistent shield envelope and separate vacuum for independent optimization, upstream beam line consistent with cryocan -->
+        <detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/beamline"    factory="TEXT" variation="downstreamCone_mix"/>  <!-- to separate shield from pipe-->
+        <detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/beamline3"    factory="TEXT" variation="vacuum_marco"/>  <!-- to separate vacuum from shield -->
         <!--detector name="experiments/clas12/beamline/beamline"     factory="TEXT" variation="ELMO"/-->
 	<detector name="experiments/clas12/beamline/vacuumLine/"  factory="CAD"/>
 	<detector name="experiments/clas12/beamline/cadBeamlineELMO/" factory="CAD"/>
-        <detector name="experiments/clas12/beamline/beamline2"    factory="TEXT" variation="TransverseUpstreamBeampipe"/>
+        <detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/beamline2"    factory="TEXT" variation="TransverseUpstreamBeampipe_marco"/> <!-- to match the cryocan -->
 
         <detector name="connectUpstreamToTorusPipe">
                 <existence exist="no" />
@@ -52,7 +54,9 @@
         </detector>
 
         <!-- flux detectors -->
-        <detector name="/work/clas12/mcontalb/GEMC/GCARD/fluxDets/fluxDets" factory="TEXT" variation="recoil"/>
+        <detector name="/work/clas12/mcontalb/GEMC/GCARD/fluxDets/fluxDets" factory="TEXT" variation="recoil"/> <!-- NOTE: USE THIS FOR NOW BECAUSE YOU DON'T USE RECOIL FOR SIDIS -->
+        <!--detector name="/work/clas12/mcontalb/GEMC/GCARD/fluxDets/fluxDets" factory="TEXT" variation="recoil_long"/-->  <!-- to extend recoil reach -->
+        <!-- <detector name="/work/clas12/mcontalb/GEMC/GCARD/rgh/flux/recoil2" factory="TEXT" variation="sandro_enlarged"/> --> <!-- to be consistent with mechanics --> <!-- NOTE: THIS IS TTHE UPDATED VERSION AS OF 3/21/25 -->
 
 	<!-- forward carriage -->
 	<detector name="experiments/clas12/fc/forwardCarriage" factory="TEXT" variation="TorusSymmetric"/>
@@ -94,18 +98,18 @@
 	<!--  Do not track staff after the apex -->
 	<option name="MAX_Z_POS" value="9000"/>
 
-	<option name="INTEGRATEDRAW" value="dc, ftof, ec, pcal, flux"/>	
+	<option name="INTEGRATEDRAW" value="dc, ftof, ec, pcal, flux"/>
 	
 	<!-- beam conditions -->
 	<option name="BEAM_P"    value="e-, 10.6*GeV, 2.15*deg, 0*deg"/>
 	<option name="BEAM_V"    value="(-3.5, 0, -90)cm"/>
-	<option name="SPREAD_V"  value="(1.00, 0.05)cm"/>
+	<option name="SPREAD_V"  value="(0.70, 0.05)cm"/>
 
 	<!--  RF Signal needs event time window defined by LUMI_EVENT; 420 to account for packing factor -->
 	<option name="LUMI_EVENT"     value="0, 252*ns, 4*ns" />
 	<option name="LUMI_P"         value="e-, 10.6*GeV, 2.15*deg, 0*deg" />
 	<option name="LUMI_V"         value="(-3.5, 0.0, -90)cm" />
-	<option name="LUMI_SPREAD_V"  value="(1.00, 0.05)cm" />
+	<option name="LUMI_SPREAD_V"  value="(0.70, 0.05)cm" />
 	<option name="RFSETUP"        value="0.499, 40, 20" />
 
 	<!--  Reference position set as target shift below -->
