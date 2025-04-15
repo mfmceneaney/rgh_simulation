@@ -9,8 +9,8 @@ export MCINDEX=0 #NOTE: This will be set by `setup.sh`.
 export PREFIX="rgh_out_NH3_" #NOTE: Make sure this matches what you have in `submit_clasdis.sh`.
 export BASENAME="${PREFIX}${MCINDEX}"
 export NEVENTS=100 #NOTE: This will be set by `setup.sh`.
-export GCARD="$RGH_SIM_WORK_DIR/rgh_physics.gcard"
-export YAML="$RGH_SIM_WORK_DIR/rgh_physics.yaml"
+export GCARD="$RGH_SIM_HOME/rgh_physics.gcard"
+export YAML="$RGH_SIM_HOME/rgh_physics.yaml"
 export OUTDIR="$RGH_SIM_VOL_DIR"
 
 # Obsolete if using `submit_clasdis.sh`
