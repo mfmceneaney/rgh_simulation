@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /work/clas12/users/$USER/rgh_simulation
+cd $RGH_SIM_WORK_DIR
 i=1
 
 export NITERATIONS=1000

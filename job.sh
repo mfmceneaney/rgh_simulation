@@ -5,18 +5,21 @@
 # module load xrootd
 
 # Set job info
-export MCINDEX=0 #NOTE: NEED TO CHANGE FROM SETUP.SH
-export BASENAME="out_rgh_NH3_${MCINDEX}"
-export BASEDIR="/work/clas12/users/$USER/rgh_simulation"
-export BEAM_ENERGY=10.6
-export TARGET_TYPE="proton"
-export NEVENTS=100 #NOTE: NEED TO CHANGE FROM SETUP.SH? -> Definitely increase for actual jobs but keep this for testing...
-export EVPFILE=$NEVENTS
-export GCARD="$BASEDIR/rgh_physics.gcard"
-export YAML="$BASEDIR/rgh_physics.yaml"
-export OUTDIR="/volatile/clas12/users/$USER/rgh_simulation"
-export XMIN=0.05 #NOTE: THESE ARE KINEMATIC LIMITS FOR CLASDIS GENERATOR.
-export XMAX=0.95
+export MCINDEX=0 #NOTE: This will be set by `setup.sh`.
+export PREFIX="rgh_out_NH3_" #NOTE: Make sure this matches what you have in `submit_clasdis.sh`.
+export BASENAME="${PREFIX}${MCINDEX}"
+export NEVENTS=100 #NOTE: This will be set by `setup.sh`.
+export GCARD="$RGH_SIM_WORK_DIR/rgh_physics.gcard"
+export YAML="$RGH_SIM_WORK_DIR/rgh_physics.yaml"
+export OUTDIR="$RGH_SIM_VOL_DIR"
+
+# Obsolete if using `submit_clasdis.sh`
+# export EVPFILE=$NEVENTS
+# export BEAM_ENERGY=10.6
+# export TARGET_TYPE="proton"
+# export XMIN=0.05 #NOTE: These are kinematic limits for the clasdis generator
+# export XMAX=0.95
+
 mkdir -p $OUTDIR
 
 function check_task_status() {
@@ -45,7 +48,8 @@ export OUTDIR_LUND="${OUTDIR}/lund"
 mkdir -p $OUTDIR_LUND
 cd $OUTDIR_LUND #NOTE: Since clasdis does not like long input path names and just truncates them just cd to here and use basename
 export LUNDFILE=$BASENAME #NOTE: This cannot be too long, otherwise clasdis will truncate it.
-clasdis --beam $BEAM_ENERGY --targ $TARGET_TYPE --trig $NEVENTS --nmax $EVPFILE --path $LUNDFILE --x $XMIN $XMAX
+#NOTE: This step is run separately in `submit_clasdis.sh` now: clasdis --beam $BEAM_ENERGY --targ $TARGET_TYPE --trig $NEVENTS --nmax $EVPFILE --path $LUNDFILE --x $XMIN $XMAX
+ls -lrth $OUTDIR_LUND/${BASENAME}*clasdis*.dat
 export LUND_TASK_STATUS=$?
 cd - #NOTE: cd back to wherever you were before clasdis
 export LUNDFILE=`ls $OUTDIR_LUND/${BASENAME}clasdis*.dat`
@@ -77,6 +81,6 @@ export DST_TASK_STATUS=$?
 check_task_status "hipo-utils -filter" $DSTFILE $DST_TASK_STATUS 4
 
 # Clean up intermediate files
-#rm $LUNDFILE
+#rm $LUNDFILE #NOTE: Keep these files because you need to know how much XS you generated and that is recorded in the file names.
 rm $GEMCFILE
 rm $RECFILE
