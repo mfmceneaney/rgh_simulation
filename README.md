@@ -6,8 +6,17 @@ You will need the CLAS12 simulation software.
 * [clasdis](https://github.com/JeffersonLab/clasdis/tree/master)
 * gemc==5.10
 * coatjava==11.0.1
+* git-lfs
 
 These should already be installed on ifarm.  For a full list see the [CLAS12 Software Wiki](https://clasweb.jlab.org/wiki/index.php/How_to_run_the_full_simulation_train_single-threaded).
+
+You may need to module load git-lfs or install it manually on another HPC cluster.
+See the [release page](https://github.com/git-lfs/git-lfs/releases).
+
+Then setup up git-lfs
+```bash
+git lfs install --skip-repo
+```
 
 # Installation
 
