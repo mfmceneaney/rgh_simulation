@@ -25,6 +25,7 @@ You will also need to setup your enviroment.  Change the `RGH_SIM_WORK_DIR` and 
 ```bash
 cd /path/to/rgh_simulation
 source env.sh # env.csh if you are using tcsh/csh
+./setup.sh # This updates local paths in the gcard
 cd -
 ```
 
@@ -39,10 +40,10 @@ sbatch submit_clasdis.sh >> jobs.txt
 This will create the directory `$RGH_SIM_VOL_DIR/lund` and store the lund files produced by clasdis there.  You can modify the arguments for clasdis to generate more or less events and change the kinematic range, target type, etc.
 
 ## Simulating events
-Once that finishes, you need to simulate and reconstruct these events.  Modify `setup.sh` so that the total number of events, the number of events per file, and the prefix for naming files all match what you have in `submit_clasdis.sh`.  You will also want to make sure that `submit.sh` has the sbatch options you want.  Currently they are set to be optimal for 10k events per file.  Then, submit your simulation jobs with:
+Once that finishes, you need to simulate and reconstruct these events.  Modify `setup_jobs.sh` so that the total number of events, the number of events per file, and the prefix for naming files all match what you have in `submit_clasdis.sh`.  You will also want to make sure that `submit.sh` has the sbatch options you want.  Currently they are set to be optimal for 10k events per file.  Then, submit your simulation jobs with:
 ```bash
 touch jobs.txt
-./setup.sh >> jobs.txt
+./setup_jobs.sh >> jobs.txt
 ```
 
 These jobs will create the following directory structure:
