@@ -1,0 +1,11 @@
+<gxml>
+
+        <volume name="ladder"         mother="cryocan" color="aaaaff" position="0*mm 0*mm 0*mm" rotation="-90*deg 0*deg 0*deg" material="G4_Al"/>
+        <volume name="ladderSupport"  mother="cryocan" color="aaaaff" position="0*mm 0*mm 0*mm" rotation="-90*deg 0*deg 0*deg" material="G4_Al"/>
+        <volume name="targetFrame"    mother="cryocan" color="444444" position="0*mm 0*mm 0*mm" rotation="-90*deg 0*deg 0*deg" material="Kel-F"/>
+        <volume name="InnerRSSheet"       mother="cryocan" color="99ffaa" position="0*mm 0*mm 0*mm" rotation="0*deg 0*deg -90*deg" material="G4_Al"/>
+        <volume name="InnerRSSheetMIR1"   mother="cryocan" color="99ffaa" position="0*mm 0*mm 0*mm" rotation="0*deg 0*deg -90*deg" material="G4_Al"/>
+        <volume name="Pumpline60mm"       mother="cryocan" color="99ffaa" position="0*mm 0*mm 0*mm" rotation=" 0*deg 0*deg -90*deg" material="G4_Al"/>
+        <volume name="UpstreamRS"         mother="cryocan" color="99ffaa" position="0*mm -40*mm 0*mm" rotation="0*deg 0*deg -90*deg" material="G4_Al"/>
+
+</gxml>
