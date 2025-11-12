@@ -2,7 +2,7 @@
 
         <!-- target moved inside a cryostat can -->
 	<detector name="/work/clas12/mcontalb/GEMC/GCARD/targets/target" factory="TEXT" variation="transverse_marco"/>  <!-- move elements inside cryostat can-->
-        <detector name="/work/clas12/mcontalb/GEMC/GCARD//beamline/transverseTargetMagnets/targetWindows_cryocan/" factory="CAD"/>
+        <detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/transverseTargetMagnets/targetWindows_cryocan/" factory="CAD"/>
         <detector name="/work/clas12/mcontalb/GEMC/GCARD/beamline/transverseTargetMagnets/targetWindows_cryocan/cryocan" factory="TEXT" variation="marco"/>
 
         <!-- target magnet option -->
